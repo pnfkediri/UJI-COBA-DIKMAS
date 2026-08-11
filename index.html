@@ -1,169 +1,67 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ===================== -->
+<!-- PORTAL JEPANG - DEPAN -->
+<!-- ===================== -->
 
-  <title>World Country Museum</title>
+<a-box
+  position="0 1.5 -3"
+  width="2"
+  height="3"
+  depth="0.4"
+  color="#D62828"
+  class="clickable"
+  onclick="enterJapan()">
+</a-box>
 
-  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-</head>
-
-<body>
-
-<a-scene>
-
-  <!-- LANGIT -->
-  <a-sky color="#BFD7EA"></a-sky>
-
-  <!-- LANTAI -->
-  <a-plane
-    position="0 0 0"
-    rotation="-90 0 0"
-    width="10"
-    height="10"
-    color="#E8E8E8">
-  </a-plane>
-
-  <!-- DINDING BELAKANG -->
-  <a-box
-    position="0 2 -5"
-    width="10"
-    height="4"
-    depth="0.2"
-    color="#D8D8D8">
-  </a-box>
-
-  <!-- JUDUL -->
-  <a-text
-    value="WORLD COUNTRY MUSEUM"
-    position="0 3.2 -4.7"
-    align="center"
-    width="6"
-    color="#222">
-  </a-text>
-
-  <a-text
-    value="Jelajahi Dunia • Belajar • Temukan"
-    position="0 2.8 -4.7"
-    align="center"
-    width="4"
-    color="#555">
-  </a-text>
+<a-text
+  value="JAPAN"
+  position="0 1.5 -2.75"
+  align="center"
+  width="3"
+  color="#FFFFFF">
+</a-text>
 
 
-  <!-- ===================== -->
-  <!-- PORTAL JEPANG -->
-  <!-- ===================== -->
+<!-- ===================== -->
+<!-- PORTAL KOREA - KIRI -->
+<!-- ===================== -->
 
-  <a-box
-    position="-3 1.5 -2"
-    width="2"
-    height="3"
-    depth="0.4"
-    color="#D62828"
-    class="clickable"
-    onclick="enterJapan()">
-  </a-box>
+<a-box
+  position="-3 1.5 0"
+  rotation="0 90 0"
+  width="2"
+  height="3"
+  depth="0.4"
+  color="#2455A4">
+</a-box>
 
-  <a-text
-    value="JAPAN"
-    position="-3 1.5 -1.75"
-    align="center"
-    width="3"
-    color="#FFFFFF">
-  </a-text>
-
-
-  <!-- ===================== -->
-  <!-- PORTAL KOREA -->
-  <!-- ===================== -->
-
-  <a-box
-    position="0 1.5 -2"
-    width="2"
-    height="3"
-    depth="0.4"
-    color="#2455A4">
-  </a-box>
-
-  <a-text
-    value="KOREA"
-    position="0 1.5 -1.75"
-    align="center"
-    width="3"
-    color="#FFFFFF">
-  </a-text>
+<a-text
+  value="KOREA"
+  position="-2.75 1.5 0"
+  rotation="0 90 0"
+  align="center"
+  width="3"
+  color="#FFFFFF">
+</a-text>
 
 
-  <!-- ===================== -->
-  <!-- PORTAL AUSTRALIA -->
-  <!-- ===================== -->
+<!-- ===================== -->
+<!-- PORTAL AUSTRALIA - KANAN -->
+<!-- ===================== -->
 
-  <a-box
-    position="3 1.5 -2"
-    width="2"
-    height="3"
-    depth="0.4"
-    color="#1D3557">
-  </a-box>
+<a-box
+  position="3 1.5 0"
+  rotation="0 -90 0"
+  width="2"
+  height="3"
+  depth="0.4"
+  color="#1D3557">
+</a-box>
 
-  <a-text
-    value="AUSTRALIA"
-    position="3 1.5 -1.75"
-    align="center"
-    width="3"
-    color="#FFFFFF">
-  </a-text>
-
-
-  <!-- ===================== -->
-  <!-- CAMERA / SISWA -->
-  <!-- ===================== -->
-
-  <a-entity
-    id="player"
-    position="0 1.6 4">
-
-    <a-camera>
-
-      <a-cursor
-        color="#FFD700"
-        fuse="false">
-      </a-cursor>
-
-    </a-camera>
-
-  </a-entity>
-
-
-  <!-- CAHAYA -->
-  <a-light
-    type="ambient"
-    intensity="1">
-  </a-light>
-
-  <a-light
-    type="directional"
-    position="0 5 5"
-    intensity="1">
-  </a-light>
-
-</a-scene>
-
-
-<script>
-
-function enterJapan() {
-
-  alert(
-    "🇯🇵 SELAMAT DATANG DI JEPANG!\n\n" +
-    "Ruang Jepang akan kita bangun pada tahap berikutnya."
-  );
-
-}
-
-</script>
-
-</body>
-</html>
+<a-text
+  value="AUSTRALIA"
+  position="2.75 1.5 0"
+  rotation="0 -90 0"
+  align="center"
+  width="3"
+  color="#FFFFFF">
+</a-text>
