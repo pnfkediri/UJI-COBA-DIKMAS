@@ -1,67 +1,612 @@
-<!-- ===================== -->
-<!-- PORTAL JEPANG - DEPAN -->
-<!-- ===================== -->
+<!DOCTYPE html>
+<html lang="id">
 
-<a-box
-  position="0 1.5 -3"
-  width="2"
-  height="3"
-  depth="0.4"
-  color="#D62828"
-  class="clickable"
-  onclick="enterJapan()">
-</a-box>
+<head>
+  <meta charset="UTF-8">
 
-<a-text
-  value="JAPAN"
-  position="0 1.5 -2.75"
-  align="center"
-  width="3"
-  color="#FFFFFF">
-</a-text>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>World Country Museum</title>
+
+  <!-- A-FRAME -->
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
 
 
-<!-- ===================== -->
-<!-- PORTAL KOREA - KIRI -->
-<!-- ===================== -->
+  <style>
 
-<a-box
-  position="-3 1.5 0"
-  rotation="0 90 0"
-  width="2"
-  height="3"
-  depth="0.4"
-  color="#2455A4">
-</a-box>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
 
-<a-text
-  value="KOREA"
-  position="-2.75 1.5 0"
-  rotation="0 90 0"
-  align="center"
-  width="3"
-  color="#FFFFFF">
-</a-text>
+    /* Petunjuk */
+    #instruction {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background: rgba(0,0,0,0.7);
+      color: white;
+
+      padding: 10px 18px;
+      border-radius: 20px;
+
+      font-size: 14px;
+      z-index: 10;
+
+      text-align: center;
+    }
+
+    /* Batas area */
+    #areaInfo {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background: rgba(0,0,0,0.65);
+      color: white;
+
+      padding: 8px 15px;
+      border-radius: 15px;
+
+      font-size: 12px;
+      z-index: 10;
+    }
+
+  </style>
+
+</head>
 
 
-<!-- ===================== -->
-<!-- PORTAL AUSTRALIA - KANAN -->
-<!-- ===================== -->
+<body>
 
-<a-box
-  position="3 1.5 0"
-  rotation="0 -90 0"
-  width="2"
-  height="3"
-  depth="0.4"
-  color="#1D3557">
-</a-box>
 
-<a-text
-  value="AUSTRALIA"
-  position="2.75 1.5 0"
-  rotation="0 -90 0"
-  align="center"
-  width="3"
-  color="#FFFFFF">
-</a-text>
+<!-- ================================= -->
+<!-- PETUNJUK -->
+<!-- ================================= -->
+
+<div id="instruction">
+  🖱️ Lihat sekeliling dengan mouse &nbsp; | &nbsp;
+  ⌨️ WASD / ↑↓←→ untuk berjalan
+</div>
+
+
+<div id="areaInfo">
+  📐 Area eksplorasi 3 × 3 meter
+</div>
+
+
+
+<!-- ================================= -->
+<!-- DUNIA VR -->
+<!-- ================================= -->
+
+<a-scene
+  renderer="antialias: true"
+  background="color: #BFD7EA">
+
+
+  <!-- ================================= -->
+  <!-- LANGIT -->
+  <!-- ================================= -->
+
+  <a-sky
+    color="#BFD7EA">
+  </a-sky>
+
+
+
+  <!-- ================================= -->
+  <!-- LANTAI MUSEUM -->
+  <!-- ================================= -->
+
+  <a-plane
+    position="0 0 0"
+    rotation="-90 0 0"
+    width="8"
+    height="8"
+    color="#E6E6E6">
+  </a-plane>
+
+
+
+  <!-- ================================= -->
+  <!-- DINDING BELAKANG -->
+  <!-- ================================= -->
+
+  <a-box
+    position="0 2.5 -4"
+    width="8"
+    height="5"
+    depth="0.2"
+    color="#D4D4D4">
+  </a-box>
+
+
+
+  <!-- ================================= -->
+  <!-- DINDING KIRI -->
+  <!-- ================================= -->
+
+  <a-box
+    position="-4 2.5 0"
+    width="0.2"
+    height="5"
+    depth="8"
+    color="#DDDDDD">
+  </a-box>
+
+
+
+  <!-- ================================= -->
+  <!-- DINDING KANAN -->
+  <!-- ================================= -->
+
+  <a-box
+    position="4 2.5 0"
+    width="0.2"
+    height="5"
+    depth="8"
+    color="#DDDDDD">
+  </a-box>
+
+
+
+  <!-- ================================= -->
+  <!-- JUDUL MUSEUM -->
+  <!-- ================================= -->
+
+  <a-text
+    value="WORLD COUNTRY MUSEUM"
+    position="0 3.6 -3.8"
+    align="center"
+    width="7"
+    color="#222222">
+  </a-text>
+
+
+  <a-text
+    value="Jelajahi Dunia • Belajar • Temukan"
+    position="0 3.15 -3.8"
+    align="center"
+    width="5"
+    color="#555555">
+  </a-text>
+
+
+
+  <!-- ================================= -->
+  <!-- 🇯🇵 JEPANG - DEPAN -->
+  <!-- ================================= -->
+
+  <a-entity
+    id="japanPortal"
+    class="country clickable"
+    position="0 1.5 -1.6">
+
+
+    <!-- Portal -->
+    <a-box
+      id="japanBox"
+      width="1.8"
+      height="3"
+      depth="0.35"
+      color="#D62828">
+
+    </a-box>
+
+
+    <!-- Bendera -->
+    <a-circle
+      position="0 0.7 0.21"
+      radius="0.35"
+      color="white">
+
+    </a-circle>
+
+
+    <a-circle
+      position="0 0.7 0.23"
+      radius="0.16"
+      color="#BC002D">
+
+    </a-circle>
+
+
+    <!-- Nama -->
+    <a-text
+      value="JAPAN"
+      position="0 -0.2 0.25"
+      align="center"
+      width="3"
+      color="white">
+
+    </a-text>
+
+
+    <!-- Petunjuk -->
+    <a-text
+      id="japanExplore"
+      value="👆 EXPLORE JAPAN"
+      position="0 -0.75 0.25"
+      align="center"
+      width="3"
+      color="#FFD700"
+      visible="false">
+
+    </a-text>
+
+  </a-entity>
+
+
+
+  <!-- ================================= -->
+  <!-- 🇰🇷 KOREA - KIRI -->
+  <!-- ================================= -->
+
+  <a-entity
+    id="koreaPortal"
+    class="country"
+    position="-1.6 1.5 0"
+    rotation="0 90 0">
+
+
+    <a-box
+      width="1.8"
+      height="3"
+      depth="0.35"
+      color="#2455A4">
+
+    </a-box>
+
+
+    <a-circle
+      position="0 0.7 0.21"
+      radius="0.35"
+      color="white">
+
+    </a-circle>
+
+
+    <a-text
+      value="KOREA"
+      position="0 -0.2 0.25"
+      align="center"
+      width="3"
+      color="white">
+
+    </a-text>
+
+
+    <a-text
+      value="COMING SOON"
+      position="0 -0.75 0.25"
+      align="center"
+      width="3"
+      color="#FFD700">
+
+    </a-text>
+
+  </a-entity>
+
+
+
+  <!-- ================================= -->
+  <!-- 🇦🇺 AUSTRALIA - KANAN -->
+  <!-- ================================= -->
+
+  <a-entity
+    id="australiaPortal"
+    class="country"
+    position="1.6 1.5 0"
+    rotation="0 -90 0">
+
+
+    <a-box
+      width="1.8"
+      height="3"
+      depth="0.35"
+      color="#1D3557">
+
+    </a-box>
+
+
+    <a-circle
+      position="0 0.7 0.21"
+      radius="0.35"
+      color="#FFFFFF">
+
+    </a-circle>
+
+
+    <a-text
+      value="AUSTRALIA"
+      position="0 -0.2 0.25"
+      align="center"
+      width="3"
+      color="white">
+
+    </a-text>
+
+
+    <a-text
+      value="COMING SOON"
+      position="0 -0.75 0.25"
+      align="center"
+      width="3"
+      color="#FFD700">
+
+    </a-text>
+
+  </a-entity>
+
+
+
+  <!-- ================================= -->
+  <!-- PLAYER / SISWA -->
+  <!-- ================================= -->
+
+  <a-entity
+    id="player"
+    position="0 1.6 1.0"
+    movement-limit>
+
+
+    <a-camera
+      id="camera"
+      wasd-controls="
+        acceleration: 5;
+        fly: false
+      "
+      look-controls>
+
+
+      <!-- CROSSHAIR -->
+      <a-cursor
+        id="cursor"
+        fuse="false"
+        raycaster="objects: .clickable"
+        color="#FFD700"
+        opacity="0.9">
+
+      </a-cursor>
+
+
+    </a-camera>
+
+  </a-entity>
+
+
+
+  <!-- ================================= -->
+  <!-- LIGHT -->
+  <!-- ================================= -->
+
+  <a-light
+    type="ambient"
+    intensity="1.2">
+
+  </a-light>
+
+
+  <a-light
+    type="directional"
+    position="0 5 3"
+    intensity="1">
+
+  </a-light>
+
+
+</a-scene>
+
+
+
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
+
+<script>
+
+
+/* =========================================
+   MASUK JEPANG
+========================================= */
+
+function enterJapan() {
+
+  alert(
+    "🇯🇵 SELAMAT DATANG DI JEPANG!\n\n" +
+    "Ruang Jepang sedang dalam tahap pembangunan.\n\n" +
+    "Nanti di sini kita akan menemukan:\n\n" +
+    "🏯 Landmark\n" +
+    "🍣 Makanan\n" +
+    "🎎 Budaya\n" +
+    "🗣️ Bahasa\n" +
+    "🎥 Video\n" +
+    "❓ Quiz"
+  );
+
+}
+
+
+
+/* =========================================
+   AREA GERAK 3 × 3 METER
+========================================= */
+
+AFRAME.registerComponent('movement-limit', {
+
+  tick: function () {
+
+    const player = this.el;
+
+    let pos = player.object3D.position;
+
+
+    /*
+      Area gerak:
+
+      X = -1.5 sampai +1.5
+      Z = -0.5 sampai +2.5
+
+      Total = 3 × 3 meter
+    */
+
+
+    if (pos.x < -1.5) {
+      pos.x = -1.5;
+    }
+
+    if (pos.x > 1.5) {
+      pos.x = 1.5;
+    }
+
+    if (pos.z < -0.5) {
+      pos.z = -0.5;
+    }
+
+    if (pos.z > 2.5) {
+      pos.z = 2.5;
+    }
+
+  }
+
+});
+
+
+
+/* =========================================
+   INTERAKSI JARAK
+========================================= */
+
+const player =
+  document.querySelector('#player');
+
+
+const japan =
+  document.querySelector('#japanPortal');
+
+
+const japanBox =
+  document.querySelector('#japanBox');
+
+
+const japanExplore =
+  document.querySelector('#japanExplore');
+
+
+
+function distanceBetween(a,b) {
+
+  const dx =
+    a.object3D.position.x -
+    b.object3D.position.x;
+
+  const dz =
+    a.object3D.position.z -
+    b.object3D.position.z;
+
+  return Math.sqrt(
+    dx * dx +
+    dz * dz
+  );
+
+}
+
+
+
+/* =========================================
+   CEK JARAK SETIAP FRAME
+========================================= */
+
+setInterval(function() {
+
+
+  if (!player || !japan) {
+    return;
+  }
+
+
+  const distance =
+    distanceBetween(
+      player,
+      japan
+    );
+
+
+  /*
+    Jika mendekati Jepang
+  */
+
+  if (distance < 1.5) {
+
+
+    japanBox.setAttribute(
+      'color',
+      '#FF3B3B'
+    );
+
+
+    japanExplore.setAttribute(
+      'visible',
+      'true'
+    );
+
+
+    japan.setAttribute(
+      'scale',
+      '1.08 1.08 1.08'
+    );
+
+
+  } else {
+
+
+    japanBox.setAttribute(
+      'color',
+      '#D62828'
+    );
+
+
+    japanExplore.setAttribute(
+      'visible',
+      'false'
+    );
+
+
+    japan.setAttribute(
+      'scale',
+      '1 1 1'
+    );
+
+  }
+
+
+}, 100);
+
+
+
+/* =========================================
+   KLIK JEPANG
+========================================= */
+
+japan.addEventListener(
+  'click',
+  function () {
+
+    enterJapan();
+
+  }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
